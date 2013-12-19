@@ -1,0 +1,28 @@
+{
+  "name": "apiclient",
+  "version": "0.0.0",
+  "description": "client side api",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "~0.8.5",
+    "express": "~3.4.7",
+    "jade": "~0.35.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/achinkumar/apiclient"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "achin",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/achinkumar/apiclient/issues"
+  },
+  "homepage": "https://github.com/achinkumar/apiclient"
+}

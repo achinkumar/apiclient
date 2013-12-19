@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="/public/api.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jsoneditor/1.6.2/jsoneditor-min.js"></script>
+
+</head>
+<form action="demo_form" id="usrform">
+    <textarea name="usrname"></textarea>
+    <br/>
+
+    <button type="button" id="btnGet">GET</button>
+    <button type="button" id="btnPut">PUT</button>
+    <button type="button" id="btnPost">POST</button>
+    <button type="button" id="btnDelete">DELETE</button>
+    <button type="button" id="btnErr">ERROR</button>
+</form>
+<div style="color:#0000FF">
+     <h3>Response </h3> 
+</div>
+<br/>
+<div id="resp"></div>
+
+<div >
+     <h3 >Error </h3>
+ 
+</div>
+<br/>
+<div id="err" ></div>
