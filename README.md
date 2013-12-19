@@ -1,3 +1,5 @@
-CLIENT API
-
-client side code for making ajax requests,grabbing response and render it.
+<<<<<<< HEAD
+=======
+apiclient
+=========
+>>>>>>> 10832bb2f42fef7fdea8e83ef580a71cc4e5b710
