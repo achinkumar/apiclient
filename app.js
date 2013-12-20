@@ -12,7 +12,7 @@ var path = require('path');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
 app.use(express.favicon());
@@ -30,6 +30,13 @@ app.get('/', function (req, res)
     res.render('api.html');
 });
 
+app.get('/users', user.list);
+//app.get('/', routes.index);
+app.get('/employee',routes.viewEmployee);
+app.put('/employee',routes.updateEmployee);
+app.post('/employee',routes.createEmployee);
+app.delete('/employee',routes.deleteEmployee);
+app.get('/employeeErr',routes.errorEmployee);
 
 
 // development only

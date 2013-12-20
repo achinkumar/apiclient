@@ -1,32 +1,57 @@
-
 /*
  * GET home page.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+//exports.index = function(req, res){
+//    res.render('index', { title: 'Express' });
+//};
+var needle = require('needle');
+
+exports.viewEmployee = function (req, res) {
+    needle.get('http://localhost:3000/employee', function (error, response, body) {
+        if (error) {
+            res.json(error);
+        } else {            
+            res.json(body);
+        }
+    });
+
 };
 
-
-exports.viewEmployee =function(req,res){
-	var employee = {"mode":"view","data":{"emp_id":"1","name":"achin"}};
-	res.json(employee);
+exports.updateEmployee = function (req, res) {
+    needle.put('http://localhost:3000/employee','', function (error, response, body) {
+        if (error) {
+            res.json(error);
+        } else {
+            res.json(body);
+        }
+    });
 };
 
-exports.updateEmployee =function(req,res){
-	var employee = {"mode":"update","msg":"employee records updated","data":{"emp_id":"1","name":"achin"}};
-	res.json(employee);
+exports.createEmployee = function (req, res) {
+    needle.post('http://localhost:3000/employee','', function (error, response, body) {
+        if (error) {
+            res.json(error);
+        } else {
+            res.json(body);
+        }
+    });
 };
-exports.createEmployee =function(req,res){
-	var employee = {"mode":"create","msg":"New employee created","data":{"emp_id":"1","name":"achin"}};
-	res.json(employee);
+exports.deleteEmployee = function (req, res) {
+    needle.delete('http://localhost:3000/employee','', function (error, response, body) {
+        if (error) {
+            res.json(error);
+        } else {
+            res.json(body);
+        }
+    });
 };
-exports.deleteEmployee =function(req,res){
-	var employee = {"error":"no employee with this id","mode":"delete","msg":"employee record deleted","data":{"emp_id":"1","name":"achin"}};
-	res.json(employee);
+exports.errorEmployee = function (req, res) {
+    needle.get('http://localhost:3000/employeeErr', function (error, response, body) {
+        if (error) {
+            res.json(error);
+        } else {
+            res.json(body);
+        }
+    });
 };
-exports.errorEmployee =function(req,res){
-	var employeeErr = {"error":"no employee with this id"};
-	res.json(employeeErr);
-};
-
