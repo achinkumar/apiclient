@@ -8,7 +8,7 @@
 var needle = require('needle');
 
 exports.viewEmployee = function (req, res) {
-    needle.get('http://localhost:3000/employee', function (error, response, body) {
+    needle.get('http://mypayapi.herokuapp.com/employee', function (error, response, body) {
         if (error) {
             res.json(error);
         } else {            
@@ -19,7 +19,7 @@ exports.viewEmployee = function (req, res) {
 };
 
 exports.updateEmployee = function (req, res) {
-    needle.put('http://localhost:3000/employee','', function (error, response, body) {
+    needle.put('http://mypayapi.herokuapp.com/employee','', function (error, response, body) {
         if (error) {
             res.json(error);
         } else {
@@ -29,7 +29,7 @@ exports.updateEmployee = function (req, res) {
 };
 
 exports.createEmployee = function (req, res) {
-    needle.post('http://localhost:3000/employee','', function (error, response, body) {
+    needle.post('http://mypayapi.herokuapp.com/employee','', function (error, response, body) {
         if (error) {
             res.json(error);
         } else {
@@ -38,7 +38,7 @@ exports.createEmployee = function (req, res) {
     });
 };
 exports.deleteEmployee = function (req, res) {
-    needle.delete('http://localhost:3000/employee','', function (error, response, body) {
+    needle.delete('http://mypayapi.herokuapp.com/employee','', function (error, response, body) {
         if (error) {
             res.json(error);
         } else {
@@ -47,7 +47,7 @@ exports.deleteEmployee = function (req, res) {
     });
 };
 exports.errorEmployee = function (req, res) {
-    needle.get('http://localhost:3000/employeeErr', function (error, response, body) {
+    needle.get('http://mypayapi.herokuapp.com/employeeErr', function (error, response, body) {
         if (error) {
             res.json(error);
         } else {
