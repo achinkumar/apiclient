@@ -1,30 +1,30 @@
 $(document).ready(function() {
     $('#btnGet').click(function() {
-        ajaxify('Get', 'http://localhost:3000/employee', function(err, data) {                        
+        ajaxify('Get', '/employee', function(err, data) {                        
             $('#resp').html(JSON.stringify(data));
         });
     });
 
     $('#btnPut').click(function() {
-        ajaxify('Put', 'http://localhost:3000/employee', function(err, data) {
+        ajaxify('Put', '/employee', function(err, data) {
             $('#resp').html(JSON.stringify(data));
         });
     });
 
     $('#btnPost').click(function() {
-        ajaxify('Post', 'http://localhost:3000/employee', function(err, data) {
+        ajaxify('Post', '/employee', function(err, data) {
             $('#resp').html(JSON.stringify(data));
         });
     });
 
     $('#btnDelete').click(function() {
-        ajaxify('Delete', 'http://localhost:3000/employee', function(err, data) {
+        ajaxify('Delete', '/employee', function(err, data) {
             $('#resp').html(JSON.stringify(data));
         });
     });
 
     $('#btnErr').click(function() {
-        ajaxify('Get', 'http://localhost:3000/employeeErr', function(err, data) {
+        ajaxify('Get', '/employeeErr', function(err, data) {
             if(err){
                 $('#err').html(JSON.stringify(err));
             }else{
