@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/public/api.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jsoneditor/1.6.2/jsoneditor-min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background:#80BFFF">
+
+    <div class="page-header">
+        <h1 align="center">Paycart
+            <small>---Solution to your shopping hazzles</small>
+        </h1>
+    </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <style>
+            .nav-tabs > li, .nav-pills > li {
+                    float:none;
+                    display:inline-block;
+                }
+                
+                .nav-tabs {
+                    text-align:center;
+                }
+        </style>
+        <div class="tabbable tabs">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#order" data-toggle="tab">Order</a>
+                </li>
+                <li>
+                    <a href="#arch" data-toggle="tab">Archive</a>
+                </li>
+                <li>
+                    <a href="#vouch" data-toggle="tab">Vouchers</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="order">
+            <p align="center">Current Orders</p>
+            <ul>
+                <li>Bag
+                    <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                </li>
+                <li>Jacket
+                    <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="arch">
+            Content for archive
+        </div>
+        
+        <div class="tab-pane fade" id="vouch">content for vouchers</div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>

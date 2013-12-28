@@ -1,0 +1,18 @@
+<table border="1">
+
+
+    <% for(var i=0; i < rows.length; i++){ %>
+        <tr>
+            <%for(var key in rows[i]){ %>
+
+                <td>
+                    <%=JSON.stringify(rows[i][key])%>
+                </td>
+
+                <% } %>
+
+        </tr>
+        <% } %>
+
+
+</table>
