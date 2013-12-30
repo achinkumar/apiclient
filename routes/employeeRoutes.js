@@ -1,7 +1,7 @@
-var routes = require('../controller/empController');
+var empController = require('../controller/empController');
 module.exports = function(app){
-app.get('/employee',routes.viewEmployee);
-app.put('/employee',routes.updateEmployee);
-app.post('/employee',routes.createEmployee);
-app.delete('/employee',routes.deleteEmployee);
+app.get('/employee',empController.viewEmployee);
+app.put('/employee',empController.updateEmployee);
+app.post('/employee',empController.createEmployee);
+app.delete('/employee',empController.deleteEmployee);
 }

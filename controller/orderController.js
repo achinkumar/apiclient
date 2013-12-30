@@ -1,24 +1,56 @@
 var ejs = require('ejs');
-exports.createOrder = function (req, res) {
-    // TODO :: 
-    // 1. receivce a json from req,
-    // 2. save that json to mongodb
-    // 3. return the same json to response
-    var reqData = req.body;
-    res.json(reqData);
-}
-// TODO --add comments 
-exports.updateOrder = function (req, res) {
-    // TODO :: 
-    // 1. receivce a json from req,
-    // 2. save that json to mongodb
-    // 3. return the same json to response
-    var reqData = req.body;
-    res.json(reqData);
+var orderDao = require('../dao/orderDao');
 
+//receives a json,inserts it in mongo and returns the same to response.
+
+exports.createOrder = function (req, res) {
+    var reqData = req.body;
+    orderDao.addToMongo(reqData, function (err, result) {
+        if (err) {
+            var errHandle = {
+                "error": err,
+                "detailed error": "error occurred while inserting"
+            };
+            res.json(errHandle);
+        }
+        res.json(result);
+    });
 };
 
-// TODO --add comments 
+
+
+// receives a json,updates mongo and returns the same to response.
+
+exports.updateOrder = function (req, res) {
+    var reqData = req.body;
+    orderDao.updateMongo(reqData, function (err, result) {
+        if (err) {
+            var errHandle = {
+                "error": err,
+                "detailed error": "error occurred while inserting"
+            };
+            res.json(errHandle);
+        }
+        res.json(result);
+    });
+};
+
+exports.findOrder = function (req, res) {
+    var reqData = req.body;
+    orderDao.findInMongo(reqData, function (err, result) {
+        if (err) {
+            var errHandle = {
+                "error": err,
+                "detailed error": "error occurred while inserting"
+            };
+            res.json(errHandle);
+        }
+        res.json(result);
+    });
+};
+
+
+
 exports.index = function (req, res) {
     // TODO :: 
     // 1.Displays the page.

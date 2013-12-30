@@ -31,7 +31,7 @@ app.engine('html', require('ejs').renderFile);
 //routes
 require('./router')(app);
 
-//exposing app
+//exposing$ app
 exports = module.exports = app;
 
 
