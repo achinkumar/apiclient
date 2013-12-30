@@ -19,6 +19,6 @@ exports.updateMongo = function (updateData, callback) {
 };
 
 exports.findInMongo = function (findData,callback) {
-  config.dbc.collection(config.TABLE_PAYCART).insert(findData, callback);
+  config.dbc.collection(config.TABLE_PAYCART).find(findData,callback);
 
 }
