@@ -12,9 +12,15 @@ exports.addToMongo = function (insertData, callback) {
 };
 
 //updates Mongo with the provided data.
-
-exports.updateMongo = function (updateData, callback) {
-    config.dbc.collection(config.TABLE_PAYCART).insert(updateData, callback);
+exports.updateMongo = function (updateId, updateData, callback) {
+    var updateQuery = {
+        '_id': config.dbc.ObjectID(updateId)
+    }
+    config.dbc.collection(config.TABLE_PAYCART).update(updateQuery, updateData, function (err, res) {
+        callback(err, {
+            'records_updated': res
+        });
+    });
 
 };
 
@@ -23,17 +29,16 @@ exports.findInMongo = function (findData, callback) {
 
 };
 
-exports.findIdInMongo = function (findData, callback) {
-    console.log('>>> fi'+findData._id);
+exports.findIdInMongo = function (findId, callback) {
     config.dbc.collection(config.TABLE_PAYCART).findOne({
-        "_id": config.dbc.ObjectID.createFromHexString(findData._id)
-    },callback);
+        "_id": config.dbc.ObjectID(findId)
+    }, callback);
 
 }
 exports.deleteFromMongo = function (delData, callback) {
-    
+
     config.dbc.collection(config.TABLE_PAYCART).remove({
         "_id": config.dbc.ObjectID(delData._id)
-    },callback);
+    }, callback);
 
 }
