@@ -36,9 +36,10 @@ exports.createOrder = function (req, res) {
 // receives a json,updates mongo and returns the same to response.
 
 exports.updateOrder = function (req, res) {
-    var reqData = req.body;
-    processRequest(reqData);
-    orderDao.updateMongo(reqData, function (err, result) {
+    var updateData = req.body;
+    var updateId = req.params.id;
+    processRequest(updateData);
+    orderDao.updateMongo(updateId, updateData, function (err, result) {
         if (err) {
             console.log("error occurred while updating order" + err);
             var errHandle = {
@@ -47,6 +48,9 @@ exports.updateOrder = function (req, res) {
             processResponse(errHandle);
             res.json(errHandle);
         }
+        console.log('response from updateId' + updateId);
+        console.log('response from updateData' + JSON.stringify(updateData));
+        console.log('response from update' + result);
         processResponse(result);
         res.json(result);
     });
@@ -72,9 +76,9 @@ exports.findOrder = function (req, res) {
 
 //find data related to the id provided in json and returns the reponse.
 exports.findById = function (req, res) {
-    var reqData = req.body;
-    processRequest(reqData);
-    orderDao.findIdInMongo(reqData, function (err, result) {
+    var id = req.params.id;
+    // processRequest(reqData);
+    orderDao.findIdInMongo(id, function (err, result) {
         console.log('find by id result '+result);
         if (err) {
             console.log("error occurred while finding order by Id" + err);

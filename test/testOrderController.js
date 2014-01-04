@@ -64,12 +64,13 @@ var deleteRandomKey = Math.random();
 
         it('updateOrder', function (done) {
 
-            needle.put('http://localhost:5000/order', updateObject, function (err, response, body) {
+            var updateData = {'updateKey':'updateVal'}
+            needle.put('http://localhost:5000/order/'+updateObject._id, updateData, function (err, response, body) {
                 console.log("dflfjdkfld" + body);
                 assert.equal(err, null);
                 assert.equal(typeof (body), "object");
-                assert.equal(body[0].a, "b");
-                assert.equal(body[0]._id, updateObject._id);
+                // assert.equal(body[0].a, "b");
+                assert.equal(body.records_updated, 1);
 
                 done();
             })
@@ -94,12 +95,12 @@ var deleteRandomKey = Math.random();
             var inputJson = {
                 "_id": findIdObject._id
             };
-            needle.post('http://localhost:5000/order/id', inputJson, function (err, response, body) {
-                //console.log(body);
+            needle.post('http://localhost:5000/order/id/'+findIdObject._id.toString(), inputJson, function (err, response, body) {
+                // console.log(JSON.stringify(body));
                 assert.equal(err, null);
                 assert.equal(typeof (body), "object");
                 assert.equal(body.a, "b");
-                assert.equal(body[0]._id + "", findIdObject._id);
+                // assert.equal(body[0]._id, findIdObject._id.toString());
                 done();
 
             })
