@@ -1,6 +1,6 @@
 var assert = require("assert");
 var needle = require("needle");
-
+var config = require('../config');
 var orderDao = require('../dao/orderDao');
 var orderController = require('../controller/orderController');
 
@@ -12,8 +12,6 @@ var findRandomKey = Math.random();
 var findRandomValue = Math.random();
 var deleteRandomValue = Math.random();
 var deleteRandomKey = Math.random();
-
-describe('testData', function () {
 
     before(function () {
         var deleteObjectJson = {
@@ -117,4 +115,7 @@ describe('testData', function () {
         });
 
     });
-});
+//after(function (done) {
+//    config.dbc.collection(config.TABLE_PAYCART).remove({},function(){
+//    done();                                })
+//})
