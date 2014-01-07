@@ -19,6 +19,7 @@ var deleteRandomKey = Math.random();
             deleteRandomKey: deleteRandomValue
         };
         orderDao.addToMongo(deleteObjectJson, function (err, result) {
+            console.log(result);
             deleteObject = result[0];
         });
         var updateObjectJson = {
@@ -51,7 +52,7 @@ var deleteRandomKey = Math.random();
             var inputCreateJson = {
                 "a": "bob"
             };
-            needle.post('http://localhost:5000/order', inputCreateJson, function (err, response, body) {
+            needle.post(config.url, inputCreateJson, function (err, response, body) {
                 // console.log(' >>>>  ' + JSON.stringify(body));                
                 assert.equal(err, null);
                 assert.equal(typeof (body), "object");
@@ -65,8 +66,8 @@ var deleteRandomKey = Math.random();
         it('updateOrder', function (done) {
 
             var updateData = {'updateKey':'updateVal'}
-            needle.put('http://localhost:5000/order/'+updateObject._id, updateData, function (err, response, body) {
-                console.log("dflfjdkfld" + body);
+            needle.put(config.url+updateObject._id, updateData, function (err, response, body) {
+                //console.log("dflfjdkfld" + body);
                 assert.equal(err, null);
                 assert.equal(typeof (body), "object");
                 // assert.equal(body[0].a, "b");
@@ -79,7 +80,7 @@ var deleteRandomKey = Math.random();
 
         it('findOrder', function (done) {
 
-            needle.post('http://localhost:5000/order/get',
+            needle.post(config.url+'get',
                 findObject, function (err, response, body) {
                     assert.equal(err, null);
                     assert.equal(typeof (body[0]), "object");
@@ -95,7 +96,7 @@ var deleteRandomKey = Math.random();
             var inputJson = {
                 "_id": findIdObject._id
             };
-            needle.post('http://localhost:5000/order/id/'+findIdObject._id.toString(), inputJson, function (err, response, body) {
+            needle.post(config.url+'id/'+findIdObject._id.toString(), inputJson, function (err, response, body) {
                 // console.log(JSON.stringify(body));
                 assert.equal(err, null);
                 assert.equal(typeof (body), "object");
@@ -108,7 +109,7 @@ var deleteRandomKey = Math.random();
 
         it('deleteFromMongo', function (done) {
 
-            needle.delete("http://localhost:5000/order/del/" + deleteObject._id, "", function (err, response, body) {
+            needle.delete(config.url+"del/" + deleteObject._id, "", function (err, response, body) {
                 assert.equal(err, null);
                 done();
 
@@ -116,7 +117,7 @@ var deleteRandomKey = Math.random();
         });
 
     });
-//after(function (done) {
-//    config.dbc.collection(config.TABLE_PAYCART).remove({},function(){
-//    done();                                })
-//})
+after(function (done) {
+    config.dbc.collection(config.TABLE_PAYCART).remove({},function(){
+    done();                                })
+})

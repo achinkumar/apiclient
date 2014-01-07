@@ -13,3 +13,4 @@ exports.companyName = 'Prokriya, Inc.';
 exports.projectName = 'Paycart';
 exports.dbc = require('mongoskin').db(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'localhost:27017/paycart', {safe: true});
 exports.TABLE_PAYCART =  'paycart';
+exports.url ='http://localhost:5000/order/'
